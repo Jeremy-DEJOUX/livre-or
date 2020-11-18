@@ -1,0 +1,73 @@
+html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body{
+    margin: 0px;
+    padding: 0;
+    width: 100%;
+}
+/* ===================CLASS GENERAL=========================== */
+.flex{
+    display: flex;
+}
+.align_center{
+    align-items: center;
+}
+.justify_between{
+    justify-content: space-between;
+}
+.justify_around{
+    justify-content: space-around;
+}
+.flex_column{
+    flex-direction: column;
+}
+.align_around{
+    align-content: space-around;
+}
+
+
+
+
+
+
+/* ============================END CLASS GENERAL==================== */
+
+
+
+/* ============================HEADER======================== */
+ #index_header{
+    width: 100%;
+    height: 5vh;
+    background-color: rgba(20,20,20,0.8);
+}
+
+#ul_header_index{
+    width: 100%;
+    height: 100%;
+}
+#ul_header_index li{
+    list-style-type: none;
+}
+#ul_header_index li a{
+    text-decoration: none;
+    color: white;
+    font-size: 3vh;
+}
+
+/* ==================================MAIN=================================== */
+#main_connexion{
+    width: 100%;
+    height: 50vh;
+}
+/* ===================================FORMULAIRE========================= */
+#connexion_formulaire{
+    width: 20%;
+    height: 30vh;
+    padding: 3vh;
+    background-color: rgba(20,20,20,0.8);
+    color: white;
+}
