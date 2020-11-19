@@ -1,5 +1,29 @@
 <?php
+//Connexion base de données livreor
+$bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', ''); 
+if (isset($_POST['submit'])) {
+    if ($_POST['login_user'] != "" && $_POST['password_user'] != "") {
+        if ($_POST['password_user'] == $_POST['confirmpassword']){
 
+            $login = $_POST['login_user'];
+            $password = $_POST['password_user'];
+
+            
+            $req = $bdd->prepare('INSERT INTO utilisateurs VALUES (:login_user, :password_user)');
+            $req-> execute(array(
+                'login_user' => $login,
+                'password_user' => $password
+            ));
+            header('Location: connexion.php');
+        }
+        else{
+           $error = "Les mots de passe ne corespondent pas";
+        }
+    }
+    else {
+        $error = "Il faut remplir tous les champs";
+    }
+}
 
 
 
@@ -32,7 +56,10 @@
 
     <main class="flex align_center flex_column justify_around" id="main_inscription">
         <h1>Formulaire d'Inscription</h1>
-        <form action="connexion.php" method="post" id="formulaire_inscriptions" class="flex align_center flex_column justify_around">
+        <?php if (isset($error)) {
+            echo "<h2>$error</h2>";
+        }?>
+        <form action="" method="post" id="formulaire_inscriptions" class="flex align_center flex_column justify_around">
             <section class="flex flex_column align_center">
                 <label for="login_user">Login :</label>
                 <input type="text" name="login_user">
