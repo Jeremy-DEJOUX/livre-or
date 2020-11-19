@@ -1,3 +1,35 @@
+<?php
+
+// var_dump($_POST);
+if (isset($_POST['submit'])) {
+
+    if ($_POST['login_user'] != "" && $_POST['password_user'] != "") {
+        if ($_POST['password_user'] == $_POST['confirmpassword']){
+
+            $login = $_POST['login_user'];
+            $password = $_POST['password_user'];
+
+            $bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
+            $req = $bdd->prepare('INSERT INTO utilisateurs VALUES (NULL, :login_user, :password_user)');
+            $req-> execute(array(
+                'login_user' => $login,
+                'password_user' => $password
+            ));
+        }
+        else{
+           $error = "Les mots de passe ne corespondent pas";
+        }
+    }
+    
+}
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,16 +54,21 @@
 
     <main class="flex align_center flex_column justify_around" id="main_connexion">
         <h1>Connexion</h1>
+        <?php if (isset($error)) {
+            echo "<h2>$error</h2>";
+        }?>
         <form action="profil.php" method="post" id="connexion_formulaire" class="flex align_center flex_column justify_around">
             <section class="flex flex_column align_center">
-                <label for="Login">Login :</label>
-                <input type="text" name="Login">
+                <label for="login_user">Login :</label>
+                <input type="text" name="login_user">
             </section>
 
              <section class="flex flex_column align_center">
-                    <label for="password">Password :</label>
-                    <input type="password" name="password">
+                    <label for="password_user">Password :</label>
+                    <input type="password" name="password_user">
             </section>
+
+            <button type="submit" name="submit">Connexion</button>
         </form>
     </main>
 

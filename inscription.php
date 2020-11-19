@@ -1,3 +1,14 @@
+<?php
+
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,16 +34,16 @@
         <h1>Formulaire d'Inscription</h1>
         <form action="connexion.php" method="post" id="formulaire_inscriptions" class="flex align_center flex_column justify_around">
             <section class="flex flex_column align_center">
-                <label for="Login">Login :</label>
-                <input type="text" name="Login">
+                <label for="login_user">Login :</label>
+                <input type="text" name="login_user">
             </section>
             
 
 
             <section class="flex justify_around align_around">
                 <article class="flex flex_column justify_around align_center">
-                    <label for="password">Password :</label>
-                    <input type="password" name="password">
+                    <label for="password_user">Password :</label>
+                    <input type="password" name="password_user">
                 </article>
                         
                 <article class="flex flex_column justify_around align_center">
@@ -40,32 +51,8 @@
                     <input type="password" name="confirmpassword">
                 </article>                        
             </section>
-            
-            
-            <section class="flex justify_around align_around">
-                <article class="flex flex_column justify_around align_center">
-                    <label for="nom">Nom :</label>
-                    <input type="text" name="nom" id="">
-                </article>
-                
-                <article class="flex flex_column justify_around align_center">
-                    <label for="prenom">Prenom :</label>
-                    <input type="text" name="prenom" id="">
-                </article>                
-            </section>
 
-            
-            <section class="flex justify_around align_around align_center">
-                <article class="flex flex_column justify_around">
-                    <label for="date">Date de Naiisance :</label>
-                    <input type="date" name="date">
-                </article>
-
-                <article class="flex flex_column justify_around align_center">
-                    <label for="mail">Email :</label>
-                    <input type="email" name="mail" id="">
-                </article>             
-            </section>
+            <button type="submit" name="submit" >Valider</button>
         </form>
     </main>
 
