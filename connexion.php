@@ -2,6 +2,11 @@
 //Connexion base de données livreor
 $bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
 
+if (isset($_POST['submit'])) {
+  $login_connect = htmlspecialchars($_POST['login_user']);
+  $password_connect = sha1($_POST['password_user']);
+}
+
 ?>
 
 
@@ -34,7 +39,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
 <!-- =======================================MAIN=============================================== -->
     <main class="flex align_center flex_column justify_around" id="main_connexion">
         <h1>Connexion</h1>
-        
+
         <form action="profil.php" method="post" id="connexion_formulaire" class="flex align_center flex_column justify_around">
             <section class="flex flex_column align_center">
                 <label for="login_user">Login :</label>

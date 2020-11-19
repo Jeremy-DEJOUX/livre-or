@@ -1,25 +1,37 @@
 <?php
 //Connexion base de données livreor
-$bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', ''); 
+$bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
 if (isset($_POST['submit'])) {
-    if ($_POST['login_user'] != "" && $_POST['password_user'] != "") {
-        if ($_POST['password_user'] == $_POST['confirmpassword']){
+  $login = htmlspecialchars($_POST['login_user']);
+  $password = sha1($_POST['password_user']);
+  $password2 = sha1($_POST['confirmpassword']);
 
-            $login = $_POST['login_user'];
-            $password = $_POST['password_user'];
+    if (!empty($_POST['login_user']) AND !empty($_POST['password_user'])) {
 
-            
-            $req = $bdd->prepare('INSERT INTO utilisateurs VALUES (:login_user, :password_user)');
-            $req-> execute(array(
-                'login_user' => $login,
-                'password_user' => $password
-            ));
-            header('Location: connexion.php');
-        }
-        else{
-           $error = "Les mots de passe ne corespondent pas";
-        }
-    }
+            $loginlenght = strlen($login);
+            if ($loginlenght <= 255) {
+              $reqlogin = $bdd -> prepare("SELECT * FROM utilisateurs WHERE login = ?");
+              $reqlogin -> execute(array($login));
+              $login_exist = $reqlogin -> rowCount();
+              if ($login_exist = 0) {
+                if ($password == $password2){
+
+                    $insertuser = $bdd->prepare("INSERT INTO utilisateurs(login, password) VALUES (?, ?)");
+                    $insertuser -> execute(array($login,$password));
+                  header('Location: connexion.php');
+                }
+                else{
+                   $error = "Les mots de passe ne corespondent pas";
+                }
+              }
+              else {
+                $error = "Le login existe déja";
+              }
+            }
+            else {
+              $error = "Le Login est trop grand";
+            }
+          }
     else {
         $error = "Il faut remplir tous les champs";
     }
@@ -59,12 +71,12 @@ if (isset($_POST['submit'])) {
         <?php if (isset($error)) {
             echo "<h2>$error</h2>";
         }?>
-        <form action="" method="post" id="formulaire_inscriptions" class="flex align_center flex_column justify_around">
+        <form action="inscription.php" method="post" id="formulaire_inscriptions" class="flex align_center flex_column justify_around">
             <section class="flex flex_column align_center">
                 <label for="login_user">Login :</label>
-                <input type="text" name="login_user">
+                <input type="text" name="login_user" value="<?php if (isset($login)) { echo $login;  } ?>">
             </section>
-            
+
 
 
             <section class="flex justify_around align_around">
@@ -72,11 +84,11 @@ if (isset($_POST['submit'])) {
                     <label for="password_user">Password :</label>
                     <input type="password" name="password_user">
                 </article>
-                        
+
                 <article class="flex flex_column justify_around align_center">
                     <label for="confirmpassword">Confirm Password :</label>
                     <input type="password" name="confirmpassword">
-                </article>                        
+                </article>
             </section>
 
             <button type="submit" name="submit" >Valider</button>
