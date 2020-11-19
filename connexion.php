@@ -1,10 +1,30 @@
 <?php
+session_start();
 //Connexion base de données livreor
 $bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
 
 if (isset($_POST['submit'])) {
   $login_connect = htmlspecialchars($_POST['login_user']);
   $password_connect = sha1($_POST['password_user']);
+
+  if (!empty($login_connect) AND !empty($password_connect)){
+    $req_user = $bdd->prepare("SELECT * FROM utilisateurs WHERE login = ? AND password = ?");
+    $req_user->execute(array($login_connect, $password_connect));
+    $user_exist = $req_user -> rowCount();
+    if ($user_exist = 1) {
+      $user_info = $req_user->fetch();
+      $_SESSION['id'] = $user_info['id'];
+      $_SESSION['login_user'] = $user_info['login'];
+      $_SESSOIN['password_user'] = $user_info['password'];
+      header("Location: profil.php?id=".$_SESSION['id']);
+    }
+    else {
+      $error = "Mauvais identifiant ou mot de passe";
+    }
+  }
+  else {
+    $error = "Tous les champs doivent être complétés";
+  }
 }
 
 ?>
@@ -39,8 +59,9 @@ if (isset($_POST['submit'])) {
 <!-- =======================================MAIN=============================================== -->
     <main class="flex align_center flex_column justify_around" id="main_connexion">
         <h1>Connexion</h1>
+        <?php if (isset($error)) { echo "<h2>$error</h2>"; }?>
 
-        <form action="profil.php" method="post" id="connexion_formulaire" class="flex align_center flex_column justify_around">
+        <form action="connexion.php" method="post" id="connexion_formulaire" class="flex align_center flex_column justify_around">
             <section class="flex flex_column align_center">
                 <label for="login_user">Login :</label>
                 <input type="text" name="login_user">

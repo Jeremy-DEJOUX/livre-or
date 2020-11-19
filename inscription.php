@@ -6,14 +6,15 @@ if (isset($_POST['submit'])) {
   $password = sha1($_POST['password_user']);
   $password2 = sha1($_POST['confirmpassword']);
 
-    if (!empty($_POST['login_user']) AND !empty($_POST['password_user'])) {
+    if (!empty($login) AND !empty($password) AND !empty($password2)) {
 
             $loginlenght = strlen($login);
             if ($loginlenght <= 255) {
-              $reqlogin = $bdd -> prepare("SELECT * FROM utilisateurs WHERE login = ?");
-              $reqlogin -> execute(array($login));
-              $login_exist = $reqlogin -> rowCount();
-              if ($login_exist = 0) {
+
+              $req_login = $bdd->prepare("SELECT * FROM utilisateurs WHERE login=?");
+              $req_login->execute(array($login));
+              $login_exist = $req_login->rowCount();
+              if ($login_exist == 0) {
                 if ($password == $password2){
 
                     $insertuser = $bdd->prepare("INSERT INTO utilisateurs(login, password) VALUES (?, ?)");
