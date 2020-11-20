@@ -25,6 +25,9 @@ body{
 .flex_column{
     flex-direction: column;
 }
+.align_around{
+    align-content: space-around;
+}
 
 
 

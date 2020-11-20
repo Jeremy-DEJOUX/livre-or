@@ -57,24 +57,3 @@ body{
     color: white;
     font-size: 3vh;
 }
-
-/* ==================================MAIN INSCRITPION=================================== */
-#main_inscription{
-    width: 100%;
-    height: 95vh;
-}
-/* ===================================FORMULAIRE INSCRIPTION========================= */
-#formulaire_inscriptions{
-    width: 35%;
-    height: 50vh;
-    padding: 5vh;
-    background-color: rgba(20,20,20,0.8);
-    color: white;
-}
-
-#formulaire_inscriptions section{
-    width: 100%;
-}
-#formulaire_inscriptions label{
-    margin-bottom: 5px;
-}

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/index.css">
+    <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
     <title>Acceuil</title>
 </head>
 <body id="bou">
@@ -12,9 +13,13 @@
             <li><a href="index.php">Acceuil</a></li>
             <li><a href="livre-or.php">Livre d'Or</a></li>
             <li><a href="commentaire.php">Commentaire</a></li>
-            <li><a href="inscription.php">Inscription</a></li>
-            <li><a href="connexion.php">Connexion</a></li>
-            <li><a href="profil.php">Profil</a></li>
+            <li><i class='fas fa-user-alt'></i>
+              <ul>
+                <li><a href='deconnexion.php'>Deconnexion</a></li>
+                <li><a href="pages/inscription.php">Inscription</a></li>
+                <li><a href="pages/connexion.php">Connexion</a></li>
+              </ul>
+            </li>
         </ul>
     </header>
 
@@ -58,13 +63,6 @@
 
         <section class="flex align_center justify_around" id=""></section>
     </main>
-
-
-
-
-
-
-
 
 
 <!-- =============================================================FOOTER========================================== -->

@@ -1,32 +1,8 @@
 <?php
-session_start();
-//Connexion base de données livreor
-$bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
-
+require_once("../configs/config.php");
 if (isset($_POST['submit'])) {
-  $login_connect = htmlspecialchars($_POST['login_user']);
-  $password_connect = sha1($_POST['password_user']);
-
-  if (!empty($login_connect) AND !empty($password_connect)){
-    $req_user = $bdd->prepare("SELECT * FROM utilisateurs WHERE login = ? AND password = ?");
-    $req_user->execute(array($login_connect, $password_connect));
-    $user_exist = $req_user -> rowCount();
-    if ($user_exist = 1) {
-      $user_info = $req_user->fetch();
-      $_SESSION['id'] = $user_info['id'];
-      $_SESSION['login_user'] = $user_info['login'];
-      $_SESSOIN['password_user'] = $user_info['password'];
-      header("Location: profil.php?id=".$_SESSION['id']);
-    }
-    else {
-      $error = "Mauvais identifiant ou mot de passe";
-    }
-  }
-  else {
-    $error = "Tous les champs doivent être complétés";
-  }
+  $error = connexion($_POST['login_user'], $_POST['password_user'], $bdd);
 }
-
 ?>
 
 
@@ -39,7 +15,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="CSS/connexion.css">
+    <link rel="stylesheet" href="../CSS/connexion.css">
     <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
 </head>
 <body>

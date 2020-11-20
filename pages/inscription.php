@@ -1,45 +1,8 @@
 <?php
-//Connexion base de données livreor
-$bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
-if (isset($_POST['submit'])) {
-  $login = htmlspecialchars($_POST['login_user']);
-  $password = sha1($_POST['password_user']);
-  $password2 = sha1($_POST['confirmpassword']);
-
-    if (!empty($login) AND !empty($password) AND !empty($password2)) {
-
-            $loginlenght = strlen($login);
-            if ($loginlenght <= 255) {
-
-              $req_login = $bdd->prepare("SELECT * FROM utilisateurs WHERE login=?");
-              $req_login->execute(array($login));
-              $login_exist = $req_login->rowCount();
-              if ($login_exist == 0) {
-                if ($password == $password2){
-
-                    $insertuser = $bdd->prepare("INSERT INTO utilisateurs(login, password) VALUES (?, ?)");
-                    $insertuser -> execute(array($login,$password));
-                  header('Location: connexion.php');
-                }
-                else{
-                   $error = "Les mots de passe ne corespondent pas";
-                }
-              }
-              else {
-                $error = "Le login existe déja";
-              }
-            }
-            else {
-              $error = "Le Login est trop grand";
-            }
-          }
-    else {
-        $error = "Il faut remplir tous les champs";
-    }
-}
-
-
-
+  require_once("../configs/config.php");
+  if (isset($_POST['submit'])) {
+    $error = inscription($_POST['login_user'], $_POST['password_user'], $_POST['confirmpassword'], $bdd);
+  }
 ?>
 
 
@@ -51,7 +14,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Inscription</title>
-    <link rel="stylesheet" href="CSS/inscription.css">
+    <link rel="stylesheet" href="../CSS/inscription.css">
 </head>
 <body>
 <header id="index_header" class="flex align_center">

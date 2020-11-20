@@ -1,6 +1,10 @@
 <?php
 session_start();
-require_once(function.php);
-$bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', '');
+$bdd = mysqli_connect('localhost', 'root', '', 'livreor');
+require_once('function.php');
 
- ?>
+if (isset($_GET['deconnexion'])) {
+    session_destroy();
+    header('Location: index.php');
+}
+?>
