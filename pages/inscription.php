@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 <body>
 <header id="index_header" class="flex align_center">
         <ul id="ul_header_index" class="flex justify_around align_center">
-            <li><a href="index.php">Acceuil</a></li>
+            <li><a href="../index.php">Acceuil</a></li>
             <li><a href="livre-or.php">Livre d'Or</a></li>
             <li><a href="commentaire.php">Commentaire</a></li>
             <li><a href="inscription.php">Inscription</a></li>
