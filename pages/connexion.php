@@ -20,16 +20,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <!-- ===================================HEADER========================================== -->
-<header id="index_header" class="flex align_center">
-        <ul id="ul_header_index" class="flex justify_around align_center">
-            <li><a href="index.php">Acceuil</a></li>
-            <li><a href="livre-or.php">Livre d'Or</a></li>
-            <li><a href="commentaire.php">Commentaire</a></li>
-            <li><a href="inscription.php">Inscription</a></li>
-            <li><a href="connexion.php">Connexion</a></li>
-            <li><a href="profil.php"><i class="fas fa-user-alt"></i></a></li>
-        </ul>
-    </header>
+    <?php require_once('header.php'); ?>
 
 
 <!-- =======================================MAIN=============================================== -->

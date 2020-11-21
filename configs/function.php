@@ -58,11 +58,15 @@
       if ($count) {
         $result = mysqli_fetch_assoc($query);
 
+        echo "<pre>";
+        print_r($result);
+        echo "</pre>";
+
 
         if (password_verify($password, $result['password'])) {
           $_SESSION['id'] = $result['id'];
           $_SESSION['login'] = $result['login'];
-          header("Location: profil.php?id=".$_SESSION['id']);
+          // header("Location: profil.php?id=".$_SESSION['id']);
         }
 
         else {
@@ -81,14 +85,5 @@
     }
     return $error;
   }
-
-
-// $bdd = mysqli_connect('localhost', 'root', '', 'livreor');
-//
-// $query = mysqli_query($bdd, "SELECT * FROM utilisateurs");
-//   $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
-//   echo "<pre>";
-//   print_r($result);
-//   echo "</pre>";
 
  ?>

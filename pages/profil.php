@@ -22,32 +22,7 @@ if ($_GET['id'] AND $_GET['id'] > 0) {
 </head>
 <body>
     <!-- ===================================HEADER========================================== -->
-<header id="index_header" class="flex align_center">
-        <ul id="ul_header_index" class="flex justify_around align_center">
-          <?php if (isset($_SESSION['id'])) { ?>
-            <li><a href='../index.php'>Acceuil</a></li>
-            <li><a href='livre-or.php'>Livre d'Or</a></li>
-            <li><a href='commentaire.php'>Commentaire</a></li>
-            <li><i class='fas fa-user-alt'></i>
-              <ul>
-                <li><a class='' href='deconnexion.php'>Deconnexion</a></li>
-              </ul>
-            </li>
-          <?php
-        }
-        else {
-          ?>
-            "<li><a href='index.php'>Acceuil</a></li>
-            <li><a href='livre-or.php'>Livre d'Or</a></li>
-            <li><a href='commentaire.php'>Commentaire</a></li>
-            <li><a href='inscription.php'>Inscription</a></li>
-            <li><a href='connexion.php'>Connexion</a></li>
-            <li><a href='profil.php'><i class='fas fa-user-alt'></i></a></li>";
-          <?php
-        }
-        ?>
-        </ul>
-    </header>
+<?php require_once('header.php'); ?>
 
 
 <!-- =======================================MAIN=============================================== -->
