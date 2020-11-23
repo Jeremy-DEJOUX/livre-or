@@ -16,6 +16,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <title>Connexion</title>
     <link rel="stylesheet" href="../CSS/connexion.css">
+    <link rel="stylesheet" href="../CSS/index.css">
     <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
 </head>
 <body>

@@ -15,6 +15,8 @@
     <meta charset="UTF-8">
     <title>Inscription</title>
     <link rel="stylesheet" href="../CSS/inscription.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <?php require_once('header.php'); ?>
