@@ -1,8 +1,8 @@
 <?php require_once('../configs/config.php');
 
-$querry = mysqli_query($bdd, "SELECT id_utilisateur, commentaire FROM commentaires ORDER BY id DESC");
-$user = mysqli_query($bdd, 'SELECT commentaires.id_utilisateur, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id');
-$id = mysqli_fetch_assoc($user);
+// $querry = mysqli_query($bdd, "SELECT commentaires.id_utilisateur, commentaires.commentaire, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateurs = utilisateurs.id ");
+$querry = mysqli_query($bdd, 'SELECT commentaires.id_utilisateur , utilisateurs.login, commentaires.commentaire FROM utilisateurs INNER JOIN commentaires ON commentaires.id_utilisateur = utilisateurs.id ORDER BY utilisateurs.id DESC');
+
  ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -17,11 +17,11 @@ $id = mysqli_fetch_assoc($user);
 <main>
   <?php
 
-  while ($a = mysqli_fetch_assoc($querry)) {
-    echo "L'utilisateur ".$id['login']." A l'aissé ce commentaire: <br />";
+  while ($a = mysqli_fetch_assoc($querry)){
+    echo "L'utilisateur ".$a['login']." A l'aissé ce commentaire: <br />";
     echo $a['commentaire']."<br /> <br />";
 
-  }
+}
 
   ?>
 
