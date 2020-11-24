@@ -131,4 +131,26 @@ function Profil($bdd, $user_name, $password, $confirm_password){
   return $error;
 
   }
- ?>
+
+
+  function ajout_comm($bdd, $commentaires){
+    $error = null;
+    $commentaires = mysqli_escape_string($bdd, htmlspecialchars(trim($commentaires)));
+    $mon_id = $_SESSION['id'];
+
+    if (!empty($commentaires)) {
+
+        $insert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire, id_utilisateur) VALUES('$commentaires', '$mon_id')");
+        if ($insert) {
+          $error = "Votre commentaire à bien était posté";
+          header("Location: livre-or.php");
+        }
+        else {
+          $error = "Votre commentaire n'a pas été posté";
+        }
+      }
+    else {
+      $error = "Vous n'avez pas rentré de commentaires";
+    }
+    return $error;
+  }
