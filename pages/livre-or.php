@@ -17,15 +17,24 @@ $querry = mysqli_query($bdd, 'SELECT commentaires.id_utilisateur , utilisateurs.
 
     <?php require_once('../configs/header.php'); ?>
 
-    <main flex flex_column justify_between align_center id="livre_main">
+    <main class="flex flex_column justify_between align_center" id="livre_main">
 
-      <?php
-        while ($a = mysqli_fetch_assoc($querry))
-        {
-          echo "Le ".$a['date']." L'utilisateur ".$a['login']." A l'aissé ce commentaire: <br />";
-          echo $a['commentaire']."<br /> <br />";
-        }
-      ?>
+      <h1>Livre d'Or</h1>
+
+      <section>
+        <?php
+          while ($a = mysqli_fetch_assoc($querry))
+          {
+            echo "<br /> <br /> <br /> <br />"
+            ."Le "
+            ."<u>".$a['date']."</u>"
+            ." <b>".$a['login']."</b>"
+            ." a l'aissé ce commentaire:"
+            ."<br/> <br/>"
+            .$a['commentaire'];
+          }
+        ?>
+      </section>
 
     </main>
 
