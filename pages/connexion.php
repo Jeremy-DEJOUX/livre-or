@@ -16,12 +16,13 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <title>Connexion</title>
     <link rel="stylesheet" href="../CSS/connexion.css">
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
     <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- ===================================HEADER========================================== -->
-    <?php require_once('header.php'); ?>
+    <?php require_once('../configs/header.php'); ?>
 
 
 <!-- =======================================MAIN=============================================== -->
@@ -47,6 +48,6 @@ if (isset($_POST['submit'])) {
 
 
 <!-- ====================================FOOTER============================================ -->
-    <footer></footer>
+    <?php require_once('../configs/footer.php') ?>
 </body>
 </html>

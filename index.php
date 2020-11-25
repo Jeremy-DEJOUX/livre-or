@@ -6,12 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
     <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
     <title>Acceuil</title>
 </head>
-<body id="bou">
+<body class="flex flex_column justify_between">
 <!-- ======================================================HEADER================================================ -->
-    <?php require_once('pages/header.php'); ?>
+    <?php require_once('configs/header.php'); ?>
 
 
 
@@ -56,7 +58,6 @@
 
 
 <!-- =============================================================FOOTER========================================== -->
-    <footer class="" id="footer_index">
-    </footer>
+    <?php require_once('configs/footer.php') ?>
 </body>
 </html>

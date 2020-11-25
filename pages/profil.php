@@ -25,12 +25,13 @@ if (isset($_SESSION['id'])){
     <meta charset="UTF-8">
     <title>Profil</title>
     <link rel="stylesheet" href="../CSS/profil.css">
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
     <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- ===================================HEADER========================================== -->
-<?php require_once('header.php'); ?>
+<?php require_once('../configs/header.php'); ?>
 
 
 <!-- =======================================MAIN=============================================== -->
@@ -74,7 +75,7 @@ if (isset($_SESSION['id'])){
 
 
 <!-- ====================================FOOTER============================================ -->
-    <footer></footer>
+    <?php require_once('../configs/footer.php') ?>
 </body>
 </html>
 <?php

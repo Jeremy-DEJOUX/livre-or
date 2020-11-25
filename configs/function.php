@@ -17,7 +17,7 @@
 
                 if ($password = $confirm_password) {
                   $crypted_password = password_hash($password, PASSWORD_BCRYPT);
-                  $insert = mysqli_query($bdd, "INSERT INTO utilisateurs(login, password) VALUES('$user_name', '$crypted_password')");
+                  $insert = mysqli_query($bdd, "INSERT INTO utilisateurs(login, password) VALUES('$user_name', '$crypted_password') ");
 
                   if ($insert) {
                     header('Location: ../pages/connexion.php');
@@ -140,7 +140,7 @@ function Profil($bdd, $user_name, $password, $confirm_password){
 
     if (!empty($commentaires)) {
 
-        $insert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire, id_utilisateur) VALUES('$commentaires', '$mon_id')");
+        $insert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire, id_utilisateur, date) VALUES('$commentaires', '$mon_id', NOW())");
         if ($insert) {
           $error = "Votre commentaire à bien était posté";
           header("Location: livre-or.php");

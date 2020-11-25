@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Staatliches', cursive;
+}
+
+body{
+    margin: 0px;
+    padding: 0;
+    width: 100%;
+}
+/* ===================CLASS GENERAL=========================== */
+.flex{
+    display: flex;
+}
+.align_center{
+    align-items: center;
+}
+.justify_between{
+    justify-content: space-between;
+}
+.justify_around{
+    justify-content: space-around;
+}
+.flex_column{
+    flex-direction: column;
+}
+.align_around{
+    align-content: space-around;
+}
+
+/* =================================MAIN========================= */
+
+#livre_main{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}

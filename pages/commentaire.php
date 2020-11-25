@@ -11,11 +11,13 @@ if (isset($_POST['ajouter'])) {
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
     <script src="https://kit.fontawesome.com/56188ecd90.js" crossorigin="anonymous"></script>
     <title></title>
   </head>
   <body>
-    <?php require_once('header.php') ?>
+    <?php require_once('../configs/header.php') ?>
 
     <main class="flex align_center justify_around">
       <?php if (isset($error)) {
@@ -28,5 +30,8 @@ if (isset($_POST['ajouter'])) {
         <button type="submit" name="ajouter">Ajouter</button>
       </form>
     </main>
+
+    <?php require_once('../configs/footer.php') ?>
+
   </body>
 </html>

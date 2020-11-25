@@ -10,7 +10,7 @@
         <li class="menu-html"> <a href='/Project Pool 2/livre-or/index.php'>Acceuil</a> </li>
         <li class="menu-html"> <a href='/Project Pool 2/livre-or/pages/livre-or.php'>Livre d'Or</a> </li>
         <li class="menu-html"> <a href='/Project Pool 2/livre-or/pages/commentaire.php'>Commentaire</a> </li>
-        <li class="menu-html"> Profil <i class='fas fa-user-alt'></i>
+        <li class="menu-html"> <a href="#" class="hoversub"> Profil <i class='fas fa-user-alt'></i> </a>
           <ul class="submenu flex align_center">
             <li id="submenu_deconnexion"> <a class="" href="/Project Pool 2/livre-or/pages/profil.php">Mon Profil</a></li>
           </ul>
@@ -21,7 +21,7 @@
 
         <li class="menu-html"> <a href='/Project Pool 2/livre-or/index.php'>Acceuil</a> </li>
         <li class="menu-html"> <a href='/Project Pool 2/livre-or/pages/livre-or.php'>Livre d'Or</a> </li>
-        <li class="menu-html"> Profil <i class='fas fa-user-alt'></i>
+        <li class="menu-html"> <a href="#" class="hoversub"> Profil <i class='fas fa-user-alt'></i> </a>
           <ul class="submenu flex align_center">
             <li id="submenu_connexion"> <a href='/Project Pool 2/livre-or/pages/connexion.php'>Connexion</a> </li>
             <li id="submenu_inscription"> <a href='/Project Pool 2/livre-or/pages/inscription.php'>Inscription</a> </li>
