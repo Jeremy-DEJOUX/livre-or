@@ -1,5 +1,10 @@
 <?php require_once('../configs/config.php');
 $querry = mysqli_query($bdd, 'SELECT commentaires.id_utilisateur , utilisateurs.login, commentaires.commentaire, commentaires.date FROM utilisateurs INNER JOIN commentaires ON commentaires.id_utilisateur = utilisateurs.id ORDER BY date DESC');
+
+// echo "<pre>";
+// print_r($bdd);
+// echo "</pre>";
+
  ?>
 
 <!DOCTYPE html>
