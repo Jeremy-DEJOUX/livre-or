@@ -2,7 +2,7 @@
 // ==========================FONCTION INSCRIPTION===================================
   function inscription($user_name, $password, $confirm_password, $bdd){
       $error = null;
-      $user_name = mysqli_escape_string($bdd, htmlspecialchars(trim($user_name)));
+      $user_name =mysqli_escape_string($bdd,htmlspecialchars(trim($user_name)));
       $password = mysqli_escape_string($bdd, htmlspecialchars(trim($password)));
       $confirm_password = mysqli_escape_string($bdd, htmlspecialchars(trim($confirm_password)));
 
