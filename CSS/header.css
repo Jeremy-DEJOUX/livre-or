@@ -30,12 +30,6 @@ nav > ul > li{
   text-align: center;
 }
 
-
-nav a{
-  text-decoration: none;
-}
-
-
 nav > ul > li > a{
   color: white;
   margin: 0px;

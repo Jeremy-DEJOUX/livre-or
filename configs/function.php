@@ -4,7 +4,7 @@
       $error = null;
       $user_name =mysqli_escape_string($bdd,htmlspecialchars(trim($user_name)));
       $password = mysqli_escape_string($bdd, htmlspecialchars(trim($password)));
-      $confirm_password = mysqli_escape_string($bdd, htmlspecialchars(trim($confirm_password)));
+      $confirm_password  = mysqli_escape_string($bdd,htmlspecialchars(trim($confirm_password)));
 
       if (!empty($user_name) AND !empty($password) AND !empty($confirm_password)) {
 
